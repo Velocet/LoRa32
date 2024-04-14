@@ -1,9 +1,9 @@
 /**
  * @file main.cpp "main.cpp"
- * @brief Automatic LoRa32 Board Configuration
+ * @brief Automatic Board Configuration
  * @author Velocet
  *
- * Automatic board configuration for LoRa32 and ESP32 with RadioLib compatible modules.
+ * Automatic board configuration for LoRa32 boards with RadioLib support.
  *
  * PlatformIO (main.cpp) example.
  *

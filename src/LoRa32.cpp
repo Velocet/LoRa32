@@ -1,9 +1,9 @@
 /**
  * @file LoRa32.cpp "LoRa32.cpp"
- * @brief Automatic LoRa32 Board Configuration
+ * @brief Automatic Board Configuration
  * @author Velocet
  *
- * Automatic board configuration for LoRa32 and ESP32 with RadioLib compatible modules.
+ * Automatic board configuration for LoRa32 boards with RadioLib support.
  *
  * MIT License
  * Copyright (c) Velocet

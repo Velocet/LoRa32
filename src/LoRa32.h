@@ -1,9 +1,9 @@
 /**
  * @file LoRa32.h "LoRa32.h"
- * @brief Automatic LoRa32 Board Configuration
+ * @brief Automatic Board Configuration
  * @author Velocet
  *
- * Automatic board configuration for LoRa32 and ESP32 with RadioLib compatible modules.
+ * Automatic board configuration for LoRa32 boards with RadioLib support.
  *
  * In PlatformIO (main.cpp) or Arduino Sketch `#include LoRa32.h` and load:
  * LORA32_RADIO radio = new Module(LORA32_SPI_CS, LORA32_RADIO_IO0, LORA32_RADIO_RST, LORA32_RADIO_IO1);
