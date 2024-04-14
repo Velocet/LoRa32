@@ -1,0 +1,62 @@
+{
+  "C_Cpp.autoAddFileAssociations": true,
+  "C_Cpp.default.compileCommands": "compile_commands.json",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "C_Cpp.clang_format_style": "file",
+  "C_Cpp.clang_format_path": "C:\\Program Files\\LLVM\\bin\\clang-tidy.exe",
+  "C_Cpp.clang_format_sortIncludes": false,
+  "C_Cpp.codeAnalysis.clangTidy.codeAction.formatFixes": false,
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.configurationWarnings": "enabled",
+  "C_Cpp.codeAnalysis.clangTidy.path": "C:\\Program Files\\LLVM\\bin\\clang-format.exe",
+  "C_Cpp.codeAnalysis.clangTidy.useBuildPath": false,
+  "C_Cpp.autocomplete": "default",
+  "C_Cpp.codeFolding": "enabled",
+  "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": true,
+  "C_Cpp.default.cppStandard": "c++20",
+  "C_Cpp.default.cStandard": "c20",
+  "C_Cpp.default.mergeConfigurations": true,
+  "C_Cpp.dimInactiveRegions": true,
+  "C_Cpp.enhancedColorization": "enabled",
+  "C_Cpp.hover": "default",
+  "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores": false,
+  "C_Cpp.vcFormat.newLine.beforeCatch": false,
+  "C_Cpp.vcFormat.newLine.beforeElse": false,
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.type": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeWhileInDoWhile": false,
+  "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyFunction": true,
+  "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyType": true,
+  "C_Cpp.vcFormat.newLine.scopeBracesOnSeparateLines": false,
+  "C_Cpp.vcFormat.wrap.preserveBlocks": "allOneLineScopes",
+  "C_Cpp.doxygen.generatedStyle": "/**",
+  "git.repositoryScanIgnoredFolders": [
+    ".github",
+    ".pio",
+    ".vscode"
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.pio": true
+  },
+  "explorer.autoRevealExclude": {
+    "**/.cache": true,
+    "**/.git": true,
+    "**/.github": true,
+    "**/.pio": true,
+    "**/.vscode": true
+  },
+  "explorer.confirmDragAndDrop": false,
+  "search.exclude": {
+    "**/.cache": true,
+    "**/.devcontainer": true,
+    "**/.git": true,
+    "**/.github": true,
+    "**/.pio": true,
+    "**/.vscode": true
+  }
+}

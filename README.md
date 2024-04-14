@@ -16,10 +16,10 @@ The name stems from the fact that most modules are equipped with an ESP32.
   - Vendor/Architecture specifics should be kept in separate files like `LoRa32_HelTec.h` or `LoRa32_RP2040.h`
     - `vendor/LoRa32_*.h` - Vendor/Board specific files
     - `arch/Lora32_$Architecture.h` - Architechture specific files
-    - `Lora32_$Library.h` - Library specific files
+    - `Lora32_$Library.h` - Library specific files that could by used by all (or most) implementations
 - `LoRa32.h` should only contain the bare minimum == board configs
   - Needs to be usable without any vendor/architechture specific includes: Easier to include this file into other projects. Just copy&paste instead of loading a lib.
-  - Because of this a version number needs to inside including the date  
+  - Because of this a version number needs to inside including the date
   - `#define`/`#if` guards are used to take care of the different boards, vendors, architechtures, etc.
 - `LoRa32_*.h` files are optional but:
   - Included by default
