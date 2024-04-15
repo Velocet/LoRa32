@@ -21,6 +21,9 @@
 #ifndef LoRa32_h
 #define LoRa32_h
 
+#include <Arduino.h>
+#include <SPI.h>
+
 #pragma region OPTIONS
 #if !defined(LORA32_RADIOLIB)
   #define LORA32_RADIOLIB (1) // Use RadioLib?
@@ -28,18 +31,32 @@
 #if !defined(LORA32_CUSTOM)
   #define LORA32_CUSTOM   (0) // Use custom config?
 #endif
-
-#if LORA32_CUSTOM > 0
-  #warning "[LORA32] Using Custom Board Config!"
-  #define LORA32_RADIO        "SX1276" // Module Type
-  #define LORA32_PINS_RADIO   PINS(RST, BUSY/IO0, IO1, IO2) // If no IO1/IO2: Use IO0 instead
-  #define LORA32_PINS_SPI     PINS(SS, MOSI, MISO, SCK)     // Define SPI PINS if using non-Arduino SPI setup
-  #define LORA32_PINS_DISPLAY PINS(RST, SCL, SDA)           // Define the Display and use like that:
-  #define DISPLAY_GEOMETRY    "GEOMETRY_128_64"   // `SSD1306 display(0x3c, LORA32_DISPLAY_SDA, LORA32_DISPLAY_SCL, LORA32_DISPLAY_RST, DISPLAY_GEOMETRY);`
-#endif
 #pragma endregion OPTIONS
 
 #define PINS(...) __VA_OPT__(__VA_ARGS__)
+
+#if LORA32_CUSTOM > 0
+  #include LoRa32_config.h
+#endif
+
+// TODO For SX127x/SX126x: Read SPI to get version: https://forum.lora-developers.semtech.com/t/sx126x-device-id/1508
+// SX1261/SX1262 REG[0x0320-0x032F] `0000320 53 58 31 32 36 31 20 56 32 44 20 32 44 30 32 00 | SX1261 V2D 2D02.`
+// OCP overcurrent protection register:
+// - SX1261: 0x18
+// - SX1262: 0x38
+// SX1268        REG[0x0320-0x032F] `0000320 53 58 31 32 36 31 20 56 32 44 20 32 44 30 32 00 | SX1268 V2D 2D02.`
+
+// TODO
+// #define BUTTON    GPIO_NUM_0 // 'PRG' Button
+// // LED pin & PWM parameters
+// #define LED_PIN   GPIO_NUM_35
+// #define LED_FREQ  5000
+// #define LED_CHAN  0
+// #define LED_RES   8
+// // Battery voltage measurement
+// #define VBAT_CTRL GPIO_NUM_37
+// #define VBAT_ADC  GPIO_NUM_1
+// #define VEXT      GPIO_NUM_36 // External power control
 
 #pragma region RADIOLIB /* RadioLib Build Configuration Options. */
 #if LORA32_RADIOLIB > 0
@@ -61,7 +78,7 @@
   #define RADIOLIB_EXCLUDE_SI443X   (1)
   #define RADIOLIB_EXCLUDE_STM32WLX (1) // dependent on RADIOLIB_EXCLUDE_SX126X
   #define RADIOLIB_EXCLUDE_SX1231   (1) // dependent on RADIOLIB_EXCLUDE_RF69
-  #define RADIOLIB_EXCLUDE_SX128X   (1)
+  #define RADIOLIB_EXCLUDE_SX128X   (1) // 2.4Ghz only
 
   // Exclude RadioLib protocols to speed up build process.
   #define RADIOLIB_EXCLUDE_AFSK          (1)
@@ -153,11 +170,11 @@
 
 #pragma region PINS
 #if defined(LORA32_PINS_SPI)
-  const uint8_t LORA32_SPI[]    = {LORA32_PINS_SPI};
-  const uint8_t LORA32_SPI_CS   = LORA32_SPI[0];
-  const uint8_t LORA32_SPI_MOSI = LORA32_SPI[1];
-  const uint8_t LORA32_SPI_MISO = LORA32_SPI[2];
-  const uint8_t LORA32_SPI_SCK  = LORA32_SPI[3];
+  const uint8_t LORA32_SPI_PINS[] = {LORA32_PINS_SPI};
+  const uint8_t LORA32_SPI_CS     = LORA32_SPI_PINS[0];
+  const uint8_t LORA32_SPI_MOSI   = LORA32_SPI_PINS[1];
+  const uint8_t LORA32_SPI_MISO   = LORA32_SPI_PINS[2];
+  const uint8_t LORA32_SPI_SCK    = LORA32_SPI_PINS[3];
 #endif
 
 #if defined(LORA32_PINS_RADIO)
@@ -175,5 +192,23 @@
   const uint8_t LORA32_DISPLAY_SDA    = LORA32_DISPLAY_PINS[2];
 #endif
 #pragma endregion PINS
+
+// #pragma region INCLUDES
+// #include "LoRa32_config.h"
+// #include "LoRa32_display.h"
+// #include "LoRa32_misc.h"
+// #include "LoRa32_RadioLib.h"
+// #include "arch/LoRa32_ESP32.h"
+// #include "arch/LoRa32_RP2040.h"
+// #include "arch/LoRa32_RP2040_Log.h"
+// #include "vendor/LoRa32_HelTec.h"
+// #pragma endregion INCLUDES
+
+
+// TODO different output for different chips + more info on used settings
+// #define STR_HELPER(x) #x
+// #define STR(x) STR_HELPER(x)
+// #pragma message(RECEIVER_CHIP "PINs: RST->" STR(LORA32_RADIO_RST) ", CS->" STR(LORA32_SPI_CS) ", IO0->" STR(LORA32_RADIO_IO0) ", IO1->" STR(LORA32_RADIO_IO1) )
+
 
 #endif // LoRa32_h

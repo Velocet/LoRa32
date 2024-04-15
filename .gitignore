@@ -1,9 +1,8 @@
 # Arduino Library Development file
 .development
 
-# Atom
-*.tags
-*.tags1
+# Jetbrain IDEs
+.idea
 
 # VS Code
 .vscode/.browse.c_cpp.db*
@@ -12,22 +11,10 @@
 .vscode/ipch
 .vscode/tasks.json
 
-# Jetbrain IDEs
-.idea
-
-# Debug decoder
-extras/decoder/log.txt
-extras/decoder/out.txt
-
-# Spectrum scan
-extras/SX126x_Spectrum_Scan/out/*
-
 # PlatformIO
 .pio
+.cache
 compile_commands.json
 
 # cmake
 build/
-
-# Compote build output
-dist
