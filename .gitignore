@@ -3,7 +3,6 @@
 
 # PlatformIO
 .pio
-.cache
 compile_commands.json
 
 # Jetbrain IDEs
@@ -18,8 +17,10 @@ compile_commands.json
 
 # Runtime Data
 build/
-.cache
+.cache/
 
 # mkdocs
 site/
-.cache/site/
+
+# Private
+.private/
