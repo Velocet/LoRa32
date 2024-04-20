@@ -1,0 +1,2 @@
+# Default behavior if core.autocrlf is not set.
+* text=auto
