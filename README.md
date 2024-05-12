@@ -45,22 +45,28 @@ The name stems from the fact that most boards are based on an ESP32 with a LoRa 
       - `SPI`: SPI name (HSPI/VSPI)
       - `DISPLAY`: Display geometry information
       - `RADIO`: RadioLib RADIO_TYPE
-      - `TBD`: ... TBD ...
+      - `TBD`: *... TBD ...*
 - Targets
   - Tool: VSCode with PlatformIO / Arduino
   - Framework: Arduino
   - Main Platform: ESP32(S2/S3)
-    - Other: ESP8266, RPi, TBD
+    - Other:
+      - ESP8266
+      - RPi
+      - Arduino Mega
+      - TBD
 
 ## Features
 
 - Same & Sane PIN naming for boards from different vendors and platforms
-- Workaround for Bugs (eg.: set input only PINs to input which could cause radio interrupt errors)
+  - PIN definitions for/from some common libs (`#define esphome`)
+  - Sane standard PIN definitions for DIY builds based on already established standards 
+- Workaround for Bugs (eg. set input only PINs to input which could cause radio interrupt errors)
 - Deep Sleep Support
 - Persistant Storage support
 - Battery measurement
 - Basic Display config (nothing i care about..)
-- Optional Automatic Lib Configs
+- Optional Automatic Lib Configs based used defines
   - RadioLib module configuration
   - Some standard display lib setups
 - TBD
@@ -73,6 +79,7 @@ The name stems from the fact that most boards are based on an ESP32 with a LoRa 
   - ExpressLRS
   - HomeSpan
   - tasmota
+  - esphome
   - [BresserWeatherSensorReceiver](https://github.com/matthias-bs/BresserWeatherSensorReceiver)
 
 Original Discussion: [PIN „Database“ @ RadioLib](https://github.com/jgromes/RadioLib/discussions/1065)
